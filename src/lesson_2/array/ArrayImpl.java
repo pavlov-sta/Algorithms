@@ -143,4 +143,9 @@ public class ArrayImpl<E extends Object & Comparable<? super E>> implements Arra
             data[in] = temp;
         }
     }
+
+    E[] getArray() {
+        return Arrays.copyOf(data, size);
+    }
+
 }

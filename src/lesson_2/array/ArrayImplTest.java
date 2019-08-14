@@ -1,36 +1,46 @@
 package lesson_2.array;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runners.Parameterized;
-
-import java.util.Collection;
-
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 
 public class ArrayImplTest {
-    private static final int LEN = 1000000;
-    private  Array<Integer> array = new ArrayImpl<>(LEN);
+
+    private ArrayImpl<Integer> array;
+
+    @BeforeEach
+    public void prepare() {
+        array = new ArrayImpl<>();
+    }
+
     @Test
-    public void add() {
-        for (int i = 0; i < LEN; i++) {
-            array.add(i);
-        }
-        Assert.assertEquals(2, array.size());
+    public void testAdd() {
+        array.add(1);
+        array.add(2);
+        array.add(3);
+
+        Assertions.assertArrayEquals(
+                new Integer[]{1, 2, 3},
+                array.getArray());
     }
 
     @Test
     public void remove() {
-        array.add(5);
+        array.add(1);
+        array.add(2);
         array.add(3);
-        Assert.assertEquals(true, array.remove(2));
+
+        array.remove(2);
+        Assertions.assertArrayEquals(
+                new Integer[] {1, 3},
+                array.getArray());
     }
 
     @Test
     public void indexOf() {
-        for (int i = 0; i < LEN; i++) {
-            array.add(i+1);
-        }
-        Assert.assertEquals(5569, array.indexOf(5569));
+
+        Assertions.assertArrayEquals(
+                new Integer[]{1, 2, 3},
+                array.getArray());
     }
 }
