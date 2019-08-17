@@ -10,10 +10,11 @@ public class QueueImpl<E> implements Queue<E> {
     private static final int DEFAULT_REAR = -1;
     private static final int DEFAULT_FRONT = 0;
 
-    private final E[] data;
+    protected final E[] data;
+    protected int size; // кол-во элементов в очереди
+
     private int front; // начало очереди
     private int rear; // конец очереди
-    private int size; // кол-во элементов в очереди
 
     public QueueImpl(int maxCapacity) {
         this.data = (E[]) new Object[maxCapacity];
@@ -31,6 +32,8 @@ public class QueueImpl<E> implements Queue<E> {
         return size;
     }
 
+
+
     @Override
     public boolean isFull() {
         return size == data.length;
@@ -42,7 +45,7 @@ public class QueueImpl<E> implements Queue<E> {
             return false;
         }
 
-        if (rear == (data.length - 1)) {
+        if (rear == (data.length-1)) {
             rear = DEFAULT_REAR;
         }
 

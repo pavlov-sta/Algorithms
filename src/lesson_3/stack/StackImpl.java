@@ -40,6 +40,7 @@ public class StackImpl<E> implements Stack<E> {
         return size;
     }
 
+
     @Override
     public boolean isFull() {
         return size == data.length;

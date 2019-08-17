@@ -1,28 +1,29 @@
 package lesson_3;
 
+import lesson_3.dek.DequeImpl;
 import lesson_3.queue.Queue;
 import lesson_3.queue.QueueImpl;
 import lesson_3.stack.Stack;
 import lesson_3.stack.StackImpl;
 
+import java.io.IOException;
+
 public class Main {
 
     public static void main(String[] args) {
-        /*Stack<Integer> stack = new StackImpl<>(5);
-        int value = 1;
+        Stack<Integer> stack = new StackImpl<>(5);
         addToStack(stack, 1);
         addToStack(stack, 5);
         addToStack(stack, 8);
         addToStack(stack, 2);
         addToStack(stack, 7);
-        addToStack(stack, 9);
 
-        System.out.println("Top of stack is:" + stack.peek());
+        System.out.print("Top of stack is:" + stack.peek()+ "\n");
 
         while (!stack.isEmpty()){
-            System.out.println(stack.pop()); // извлекаем элементы
-        }*/
-
+            System.out.print(stack.pop()+"; "); // извлекаем элементы
+        }
+        System.out.println("\n");
         Queue<Integer> queue = new QueueImpl<>(5);
         queue.insert(10);
         queue.insert(20);
@@ -34,19 +35,29 @@ public class Main {
         System.out.println("Top of queue is: " + queue.peek());
         queue.insert(60);
         queue.insert(50);
+
         while (!queue.isEmpty()) {
             System.out.print(queue.remove() + ", ");
         }
-       /* while (!queue.isEmpty()){
-            /*int n = queue.remove();
-            System.out.print(n + ", ");
-            System.out.print(queue.remove());
-        }*/
-
-        /*// 2. Создать программу, которая переворачивает вводимые строки (читает справа налево) c применением стека или очереди.
+        System.out.println("\n");
+         //2. Создать программу, которая переворачивает вводимые строки (читает справа налево) c применением стека или очереди.
         String string = "2. Создать программу, которая переворачивает вводимые строки (читает справа налево) c применением стека или очереди.";
-        flipOver(string);*/
+        flipOver(string);
+        System.out.println("\n");
 
+        // 3. Создать класс для реализации дека.
+        DequeImpl deque = new DequeImpl(5);
+        deque.insertRight(30);
+        deque.insertRight(50);
+        deque.insertRight(10);
+        deque.insertRight(40);
+        deque.insertRight(20);
+
+        while( !deque.isEmpty() )
+        {
+            System.out.print(deque.removeLeft() + " ");
+        }
+        System.out.println("");
     }
 
     private static void addToStack(Stack<Integer> stack, int value) {
@@ -70,3 +81,4 @@ public class Main {
     }
 
 }
+

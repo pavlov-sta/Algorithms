@@ -25,7 +25,7 @@ public class QueueImplTest {
         queue.insert(50);
 
         Assertions.assertArrayEquals(
-                new Integer[] {10,20,30,40,50},
+                new Integer[]{10, 20, 30, 40, 50},
                 queue.getQueue());
     }
 
@@ -42,8 +42,9 @@ public class QueueImplTest {
         queue.insert(50);
 
         Assertions.assertArrayEquals(
-                new Integer[] {60,50,30,40,50},
+                new Integer[]{60, 50, 30, 40, 50},
                 queue.getQueue());
+
     }
 
     @Test
