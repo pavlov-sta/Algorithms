@@ -20,7 +20,7 @@ public class ConcurrencyMain {
         Supplier<Array> constructor = ArrayImpl::new;
         //Supplier<Array> constructor = () -> ArrayImpl::new;
 
-         //Supplier<Array> constructor = () -> SortedArrayImpl::new;
+       //  Supplier<Array> constructor = () -> SortedArrayImpl::new;
         Array arr1 = createArray(constructor);
         //Array arr1 = new ArrayImpl();
         Array arr2 = createArray(constructor);

@@ -13,8 +13,8 @@ public class QueueImpl<E> implements Queue<E> {
     protected final E[] data;
     protected int size; // кол-во элементов в очереди
 
-    private int front; // начало очереди
-    private int rear; // конец очереди
+    protected int front; // начало очереди
+    protected int rear; // конец очереди
 
     public QueueImpl(int maxCapacity) {
         this.data = (E[]) new Object[maxCapacity];

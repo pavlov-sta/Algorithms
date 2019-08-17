@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
-        Stack<Integer> stack = new StackImpl<>(5);
+        /*Stack<Integer> stack = new StackImpl<>(5);
         addToStack(stack, 1);
         addToStack(stack, 5);
         addToStack(stack, 8);
@@ -43,16 +43,15 @@ public class Main {
          //2. Создать программу, которая переворачивает вводимые строки (читает справа налево) c применением стека или очереди.
         String string = "2. Создать программу, которая переворачивает вводимые строки (читает справа налево) c применением стека или очереди.";
         flipOver(string);
-        System.out.println("\n");
+        System.out.println("\n");*/
 
         // 3. Создать класс для реализации дека.
-        DequeImpl deque = new DequeImpl(5);
+        DequeImpl<Integer> deque = new DequeImpl(5);
         deque.insertRight(30);
         deque.insertRight(50);
         deque.insertRight(10);
-        deque.insertRight(40);
-        deque.insertRight(20);
-
+        deque.insertLeft(20);
+        deque.insertLeft(10);
         while( !deque.isEmpty() )
         {
             System.out.print(deque.removeLeft() + " ");

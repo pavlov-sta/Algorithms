@@ -12,5 +12,5 @@ public interface Deque<E> extends ICollection {
 
     E removeRight();
 
-    E peek();
+
 }

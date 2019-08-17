@@ -86,6 +86,7 @@ public class ArrayImpl<E extends Object & Comparable<? super E>> implements Arra
         return size;
     }
 
+
     @Override
     public boolean isEmpty() {
         return size == 0;
