@@ -1,6 +1,8 @@
 package lesson_2.array;
 
-public interface Array<E> {
+import lesson_2.ICollection;
+
+public interface Array<E> extends ICollection {
 
     void add(E value);
     default void addAll(E... values){
