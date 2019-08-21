@@ -2,7 +2,7 @@ package lesson_4.linkedlist;
 
 import lesson_2.ICollection;
 
-public interface LinkedList<E> extends /*ICollection,*/ Iterable<E> {
+public interface LinkedList<E> extends ICollection, Iterable<E> {
 
     void insertFirst(E value);
 
