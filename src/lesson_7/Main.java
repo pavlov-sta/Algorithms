@@ -25,7 +25,7 @@ public class Main {
         graph.addVertex("Курск");
         graph.addVertex("Воронеж");
 
-         graph.addEdges("Москва",
+        graph.addEdges("Москва",
                 "Тула",
                 "Рязань",
                 "Калуга");
@@ -43,8 +43,8 @@ public class Main {
 
         //graph.display();
 
-        Stack<String> stack = graph.shortWay("Воронеж", "Москва");
-        while (!stack.isEmpty()){
+        Stack<String> stack = graph.findShortPathViaBfs("Воронеж", "Москва");
+        while (!stack.isEmpty()) {
             System.out.print(stack.pop()); // извлекаем элементы
             if (stack.size() != 0) {
                 System.out.print(" -> ");

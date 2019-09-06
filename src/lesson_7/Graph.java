@@ -151,33 +151,47 @@ public class Graph {
         vertex.setVisited(true);
     }
 
-    public Stack<String> shortWay(String startLabel, String finishLabel) {
+    public Stack<String> findShortPathViaBfs(String startLabel, String finishLabel) {
 
         int startIndex = indexOf(startLabel);
+        int finishIndex = indexOf(finishLabel);
+        if (startIndex == -1) {
+            throw new IllegalArgumentException("Invalid startLabel: " + startLabel);
+        }
+        if (finishIndex == -1) {
+            throw new IllegalArgumentException("Invalid finishLabel: " + finishLabel);
+        }
+
         Queue<Vertex> queue = new ArrayDeque<>();
+
         Vertex vertex = vertexList.get(startIndex);
-        queue.add(vertex);
-        vertex.setVisited(true);
+        visitVertex(queue, vertex);
 
         while (!queue.isEmpty()) {
             vertex = getNearUnvisitedVertex(queue.peek());
             if (vertex == null) {
                 queue.remove();
             } else {
-                queue.add(vertex);
-                vertex.setVisited(true);
-                vertex.setProvenVertex(queue.peek());
+                visitVertex(queue, vertex);
+                vertex.setPreviousVertex(queue.peek());
                 if (vertex.getLabel().equals(finishLabel)) {
-                    Stack<String> stack = new Stack<>();
-                    Vertex current = vertex;
-                    while (current != null) {
-                        stack.push(current.getLabel());
-                        current = current.getProvenVertex();
-                    }
-                    return stack;
+                    return buildPath(vertex);
                 }
             }
         }
+
+        resetVertexState();
         return null;
+    }
+
+    private Stack<String> buildPath(Vertex vertex) {
+        Stack<String> stack = new Stack<>();
+        Vertex current = vertex;
+        while (current != null) {
+            stack.push(current.getLabel());
+            current = current.getPreviousVertex();
+        }
+
+        return stack;
     }
 }

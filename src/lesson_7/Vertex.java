@@ -4,7 +4,7 @@ public class Vertex {
 
     private final String label;
     private boolean visited;
-    private Vertex provenVertex;
+    private Vertex previousVertex;
 
     public Vertex(String label) {
         this.label = label;
@@ -29,11 +29,11 @@ public class Vertex {
         return visited;
     }
 
-    public void setProvenVertex(Vertex provenVertex) {
-        this.provenVertex = provenVertex;
+    public void setPreviousVertex(Vertex previousVertex) {
+        this.previousVertex = previousVertex;
     }
 
-    public Vertex getProvenVertex() {
-        return provenVertex;
+    public Vertex getPreviousVertex() {
+        return previousVertex;
     }
 }
